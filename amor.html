@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Romântica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Dancing Script', cursive;
+            background-color: #f9f3e9;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e0d5c8' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .envelope {
+            position: absolute;
+            width: 320px;
+            height: 220px;
+            background-color: #f3d2c1;
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a592' fill-opacity='0.2'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6h-2c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h-2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6h2c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6H6c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6h2c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 5px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.7s ease;
+            cursor: pointer;
+            border: 1px solid #d4a592;
+        }
+
+        .envelope-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #f3d2c1;
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a592' fill-opacity='0.2'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6h-2c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h-2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6h2c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6H6c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6h2c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 5px;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease;
+            border: 1px solid #d4a592;
+        }
+
+        .envelope-names {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            color: #8b4513;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+            line-height: 1.5;
+        }
+
+        .envelope-seal {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #c23b22;
+            border-radius: 50%;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .envelope-seal:before {
+            content: '❤';
+            color: #f3d2c1;
+            font-size: 30px;
+        }
+
+        .envelope:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 0;
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-top: 110px solid #e8c4b8;
+            transform-origin: top;
+            transition: all 0.5s ease;
+        }
+
+        .envelope:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0;
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-bottom: 110px solid #e8c4b8;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            width: 100%;
+            height: 0;
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-bottom: 110px solid #e8c4b8;
+            top: -110px;
+            transform-origin: bottom;
+            transition: transform 0.5s ease;
+            z-index: 2;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .letter {
+            position: absolute;
+            background-color: #fff;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e0d5c8' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            width: 250px;
+            height: 350px;
+            border-radius: 5px;
+            z-index: 0;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            box-sizing: border-box;
+            transition: all 0.8s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            opacity: 0;
+            border: 1px solid #e0d5c8;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .couple-photo {
+            width: 100%;
+            height: 180px;
+            margin-bottom: 15px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            border: 5px solid white;
+            flex-shrink: 0;
+        }
+
+        .message-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* Estilizando a barra de rolagem */
+        .message-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .message-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .message-container::-webkit-scrollbar-thumb {
+            background: #ff9eb6;
+            border-radius: 10px;
+        }
+
+        .message-container::-webkit-scrollbar-thumb:hover {
+            background: #ff758f;
+        }
+
+        .message {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease 0.5s;
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+            opacity: 0;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6b81;
+            transform: rotate(45deg);
+            animation: float 4s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6b81;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: -10px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .open .envelope-front {
+            opacity: 0;
+            z-index: 0;
+        }
+
+        .open .envelope {
+            transform: translate(-50%, 200%);
+            opacity: 0.7;
+        }
+
+        .open .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .open .letter {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .open .message {
+            opacity: 1;
+        }
+
+        .open .hearts {
+            opacity: 1;
+        }
+
+        .signature {
+            font-style: italic;
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        .fold-line {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.05);
+            left: 0;
+        }
+
+        .fold-line:nth-child(1) {
+            top: 33%;
+        }
+
+        .fold-line:nth-child(2) {
+            top: 66%;
+        }
+
+        .scroll-indicator {
+            text-align: center;
+            font-size: 12px;
+            color: #ff758f;
+            margin-top: 5px;
+            opacity: 0;
+            transition: opacity 1s ease 1s;
+        }
+
+        .open .scroll-indicator {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 500px) {
+            .envelope {
+                width: 250px;
+                height: 170px;
+            }
+            
+            .envelope:before {
+                border-left: 125px solid transparent;
+                border-right: 125px solid transparent;
+                border-top: 85px solid #e8c4b8;
+            }
+            
+            .envelope:after {
+                border-left: 125px solid transparent;
+                border-right: 125px solid transparent;
+                border-bottom: 85px solid #e8c4b8;
+            }
+            
+            .envelope-flap {
+                border-left: 125px solid transparent;
+                border-right: 125px solid transparent;
+                border-bottom: 85px solid #e8c4b8;
+                top: -85px;
+            }
+            
+            .letter {
+                width: 220px;
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hearts" id="hearts"></div>
+        <div class="envelope" id="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-front">
+                <div class="envelope-names">
+                    De: Michel Henrique<br>
+                    Para: Samantha Mendes
+                </div>
+                <div class="envelope-seal"></div>
+            </div>
+        </div>
+        <div class="letter">
+            <div class="fold-line"></div>
+            <div class="fold-line"></div>
+            <div class="couple-photo" id="couple-photo"></div>
+            <div class="message-container">
+                <div class="message" id="message">
+                    <p>Querida Samantha,</p>
+
+                    <p>Sei que não sou perfeito, sou falho, às vezes erro tentando acertar… Mas o que sinto por você é real, forte e verdadeiro. Cada dia ao seu lado me ensina o valor do amor, do cuidado, da entrega.</p>
+                    
+                    <p>Lembro do nosso primeiro encontro, dos olhares, do toque das mãos — e de como naquele momento eu soube que você era diferente. Desde então, você virou parte essencial da minha vida.</p>
+                    
+                    <p>Eu posso não saber dizer tudo com palavras, mas meu coração grita que te ama. E se for preciso, eu mudo, eu cresço, eu luto… só pra ver você feliz.</p>
+                    
+                    <p>🎵 “Eu sou só um cara, imperfeito, comum... Mas vou te amar de todos os jeitos que eu puder.” — Jorge & Mateus</p>
+                    
+                    <p>Te amo infinitamente, e não vou desistir de nós.</p>
+                    
+                    <p class="signature">Com todo meu amor,<br>Michel ❤️</p>
+                </div>
+            </div>
+            <div class="scroll-indicator">↓ Deslize para ler mais ↓</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const envelope = document.getElementById('envelope');
+            const container = document.querySelector('.container');
+            const heartsContainer = document.getElementById('hearts');
+            const photoElement = document.getElementById('couple-photo');
+            const messageContainer = document.querySelector('.message-container');
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            
+            // Definir a foto do casal
+            photoElement.style.backgroundImage = `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Imagem%20do%20WhatsApp%20de%202025-05-06%20%C3%A0%28s%29%2020.29.14_04140649.jpg-GOVUUIWbRYPKicISxPS3TVMZlEB131.jpeg')`;
+            
+            envelope.addEventListener('click', function() {
+                container.classList.toggle('open');
+                
+                if (container.classList.contains('open')) {
+                    createHearts();
+                    
+                    // Verificar se é necessário mostrar o indicador de rolagem
+                    setTimeout(() => {
+                        checkScrollNeeded();
+                    }, 1000);
+                }
+            });
+            
+            // Verificar se é necessário mostrar o indicador de rolagem
+            function checkScrollNeeded() {
+                if (messageContainer.scrollHeight > messageContainer.clientHeight) {
+                    scrollIndicator.style.opacity = '0.8';
+                } else {
+                    scrollIndicator.style.opacity = '0';
+                }
+            }
+            
+            // Ocultar o indicador de rolagem quando o usuário rolar até o final
+            messageContainer.addEventListener('scroll', function() {
+                const scrollPosition = messageContainer.scrollTop + messageContainer.clientHeight;
+                const scrollHeight = messageContainer.scrollHeight;
+                
+                if (scrollPosition >= scrollHeight - 10) {
+                    scrollIndicator.style.opacity = '0';
+                } else if (container.classList.contains('open')) {
+                    scrollIndicator.style.opacity = '0.8';
+                }
+            });
+            
+            function createHearts() {
+                heartsContainer.innerHTML = '';
+                
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.classList.add('heart');
+                        
+                        // Posição aleatória
+                        const left = Math.random() * 100;
+                        heart.style.left = `${left}%`;
+                        heart.style.bottom = '0';
+                        
+                        // Tamanho aleatório
+                        const size = Math.random() * 10 + 10;
+                        heart.style.width = `${size}px`;
+                        heart.style.height = `${size}px`;
+                        
+                        // Cor aleatória (tons de rosa e vermelho)
+                        const colors = ['#ff6b81', '#ff4757', '#ff7979', '#ff9ff3', '#f368e0'];
+                        const color = colors[Math.floor(Math.random() * colors.length)];
+                        heart.style.backgroundColor = color;
+                        
+                        // Duração da animação aleatória
+                        const duration = Math.random() * 3 + 2;
+                        heart.style.animation = `float ${duration}s ease-in-out infinite`;
+                        
+                        // Atraso na animação
+                        heart.style.animationDelay = `${Math.random() * 2}s`;
+                        
+                        heartsContainer.appendChild(heart);
+                        
+                        // Ajustar os pseudo-elementos
+                        const style = document.createElement('style');
+                        style.textContent = `
+                            .heart:nth-child(${i+1}):before,
+                            .heart:nth-child(${i+1}):after {
+                                background-color: ${color};
+                                width: ${size}px;
+                                height: ${size}px;
+                            }
+                            .heart:nth-child(${i+1}):before {
+                                top: -${size/2}px;
+                            }
+                            .heart:nth-child(${i+1}):after {
+                                left: -${size/2}px;
+                            }
+                        `;
+                        document.head.appendChild(style);
+                    }, i * 200);
+                }
+            }
+            
+            // Permitir que o usuário edite a mensagem
+            const messageElement = document.getElementById('message');
+            messageElement.addEventListener('dblclick', function() {
+                const currentText = messageElement.innerHTML;
+                const textarea = document.createElement('textarea');
+                textarea.value = currentText;
+                textarea.style.width = '100%';
+                textarea.style.height = '150px';
+                textarea.style.margin = '0';
+                textarea.style.padding = '5px';
+                textarea.style.boxSizing = 'border-box';
+                textarea.style.border = '1px solid #ff758f';
+                textarea.style.borderRadius = '3px';
+                textarea.style.fontFamily = 'inherit';
+                textarea.style.fontSize = '16px';
+                
+                messageElement.innerHTML = '';
+                messageElement.appendChild(textarea);
+                
+                textarea.focus();
+                
+                textarea.addEventListener('blur', function() {
+                    messageElement.innerHTML = textarea.value;
+                    checkScrollNeeded();
+                });
+            });
+            
+            // Adicionar dica para o usuário
+            messageElement.title = "Clique duas vezes para editar a mensagem";
+            messageElement.style.cursor = "pointer";
+        });
+    </script>
+</body>
+</html>
